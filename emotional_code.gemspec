@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["wataru0225"]
   spec.email         = ["wataru.kikuchi0225@gmail.com"]
 
-  spec.summary       = %q{TODO: There is emotion in your code.}
-  spec.description   = %q{TODO: Note: you should not install in your production application.}
-  spec.homepage      = "TODO: https://github.com/wataru0225"
+  spec.summary       = %q{There is emotion in your code.}
+  spec.description   = %q{Note: you should not install in your production application.}
+  spec.homepage      = "https://github.com/wataru0225"
   spec.license       = "MIT"
 
   if spec.respond_to?(:metadata)
