@@ -6,7 +6,7 @@
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'emotional_code', 'github: wataru0225/emotional_code'
+gem 'emotional_code', github: 'wataru0225/emotional_code'
 ```
 
 And then execute:
