@@ -24,18 +24,12 @@ module EmotionalCode
       end
 
       def set_upper_ballon(words)
-        max_length = max_length_by_words(words)
-        upper = [*(1..(max_length / 2 - 1))].each_with_object("") do |num, s|
-          s << "人"
-        end
+        upper = set_number_of_contents(1, words, "人")
         "＿#{upper}＿"
       end
 
       def set_under_ballon(words)
-        max_length = max_length_by_words(words)
-        under = [*(1..(max_length / 2 - 2))].each_with_object("") do |num, s|
-          s << "Y^"
-        end
+        under = set_number_of_contents(2, words, "Y^")
         "￣#{under}Y￣"
       end
 
@@ -49,6 +43,13 @@ module EmotionalCode
         word.chars.map do |c|
           c.bytesize == 1 ? 1 : 2
         end.inject(:+)
+      end
+
+      def set_number_of_contents(num, words, contents)
+        max_length = max_length_by_words(words)
+        [*(1..(max_length / 2 - num))].each_with_object("") do |num, s|
+          s << contents
+        end
       end
   end
 end
