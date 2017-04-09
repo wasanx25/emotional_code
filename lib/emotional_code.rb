@@ -16,6 +16,7 @@ module EmotionalCode
         words = self.split("\n").each_with_object("") do |w, s|
           s << "＞　#{w}　＜\n"
         end.chop
+        words = set_extra_space
         saying = <<-"EOS"
 #{set_upper_ballon(words)}
 #{words}
@@ -50,6 +51,23 @@ module EmotionalCode
         [*(1..(max_length / 2 - num))].each_with_object("") do |num, s|
           s << contents
         end
+      end
+
+      def set_extra_space
+        max_length = max_length_by_words(self)
+        words = self.split("\n").each_with_object("") do |w, s|
+          word_size = delicate_byte_size(w)
+          difference_word_size = max_length - word_size
+          if difference_word_size > 0
+            space = "  "
+            (max_length - word_size).times {
+              space << " "
+            }
+            s << "＞  #{w}#{space}＜\n"
+          else
+            s << "＞  #{w}  ＜\n"
+          end
+        end.chop
       end
   end
 end
